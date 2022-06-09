@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/*ajuste card produtos*/
+#produtos .row .card{
+    width: 200px;
+    float: left;
+}
+#produtos .row .card img{
+    width: 200px;
+}
