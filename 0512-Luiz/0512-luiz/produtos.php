@@ -11,13 +11,8 @@ include_once './includes/_header.php'; #inclui o header da pagina
 // conteudo da pagina
 
 //executar comando SQL = linguagem de banco de dados
-$sql = mysqli_query($conn,"SELECT * FROM categorias") or die ("Error");
+$sql = mysqli_query($conn,"SELECT * FROM produtos") or die ("Error");
 
-while ($dados = mysqli_fetch_assoc($sql)){
-    echo '<pre>';
-    print_r ($dados);
-    echo '</pre>';
-}
 
 ?>
 
@@ -25,14 +20,14 @@ while ($dados = mysqli_fetch_assoc($sql)){
         <div class="row">
     <?php
     // laco de repeticao 
-    foreach ($dadosProdutos as $key => $value) {
+    while ($dados = mysqli_fetch_assoc($sql)) {
     ?>
         <div class="card col-3" style="width: 18rem;">
-            <a href="./produto-detalhe.php?id=<?php echo $key;?>">
-                <img class="card-img-top" src="./produtos/<?php echo $value['imagem']?>" alt="<?php echo $value['nome'];?>">
+            <a href="./produto-detalhe.php?id=<?php echo $dados{ProdutosID};?>">
+                <img class="card-img-top" src="./produtos/<?php echo $dados['Imagem']?>" alt="<?php echo $dados['Nome'];?>">
                 <div class="card-body">
-                    <h4 class="card-title"><?php echo $value['nome']?></h4>
-                    <span class="card-price">R$ <?php echo ConverterEmMoeda($value['preco']);?></span>
+                    <h4 class="card-title"><?php echo $dados['Nome']?></h4>
+                    <span class="card-price">R$ <?php echo ConverterEmMoeda($dados['Preco']);?></span>
                 </div>
             </a>
         </div>

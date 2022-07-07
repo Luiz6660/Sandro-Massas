@@ -1,7 +1,7 @@
 <?php
 //dados de conexao com banco de dados
 $hostname = "localhost";
-$bancodedados = "meuluiz";
+$bancodedados = "meusite";
 $usuario = "root";
 $senha = "";
 
